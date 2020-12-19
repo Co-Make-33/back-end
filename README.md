@@ -11,8 +11,8 @@
   <tbody>
     <tr>
       <th>Auth</th>
-      <th ></th>
-      <th ></th>
+      <th >url</th>
+      <th >required</th>
     </tr>
     <tr>
       <td>GET</td>
@@ -50,9 +50,9 @@
   <tbody>
     <tr>
       <th>User</th>
-      <th ></th>
-      <th ></th>
-      <th ></th>
+      <th >url</th>
+      <th >required</th>
+      <th >optional</th>
     </tr>
     <tr>
       <td>PUT</td>
@@ -93,9 +93,9 @@
   <tbody>
     <tr>
       <th>Issues</th>
-      <th ></th>
-      <th ></th>
-      <th ></th>
+      <th >url</th>
+      <th >required</th>
+      <th >optional</th>
     </tr>
     <tr>
       <td>GET</td>
@@ -119,14 +119,15 @@
     <tr>
       <td>POST</td>
       <td >api/issues</td>
-      <td >
-      <td >
-      </td>
+      <td>
         <ul>
           <li>title</li>
           <li>description</li>
+        </ul>
+      </td>
+      <td> 
+        <ul>
           <li>picture</li>
-          <li>title</li>
         </ul>
       </td>
     </tr>
