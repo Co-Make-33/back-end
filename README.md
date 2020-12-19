@@ -53,7 +53,6 @@
       <th ></th>
       <th ></th>
       <th ></th>
-      <th ></th>
     </tr>
     <tr>
       <td>PUT</td>
@@ -82,8 +81,6 @@
       </td>
       <td >
       </td>
-      <td >
-      </td>
     </tr>
   </tbody>
 </table>
@@ -96,7 +93,6 @@
   <tbody>
     <tr>
       <th>Issues</th>
-      <th ></th>
       <th ></th>
       <th ></th>
       <th ></th>
@@ -119,23 +115,19 @@
       </td>
       <td >
       </td>
-      <td >
-      </td>
     </tr>
     <tr>
       <td>POST</td>
       <td >api/issues</td>
       <td >
+      <td >
+      </td>
         <ul>
           <li>title</li>
           <li>description</li>
           <li>picture</li>
           <li>title</li>
         </ul>
-      </td>
-      <td >
-      </td>
-      <td >
       </td>
     </tr>
     <tr>
@@ -148,8 +140,6 @@
       </td>
       <td >
       </td>
-      <td >
-      </td>
     </tr>
     <tr>
       <td>DELETE</td>
@@ -158,8 +148,6 @@
         <ul>
           <li>id (url)</li>
         </ul>
-      </td>
-      <td >
       </td>
       <td >
       </td>
