@@ -4,6 +4,8 @@
   "description": "<br/>",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "test": "jest"
   },
   "repository": {
