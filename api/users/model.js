@@ -10,11 +10,11 @@ module.exports = {
 }
 
 function getAll() {
-  return db('users').select('user_id', 'username' );
+  return db('users').select('id', 'username' );
 }
 
 function getBy(filter) {
-  return db('users').where(filter).orderBy('user_id');
+  return db('users').where(filter).orderBy('id');
 }
 
 function getById(id) {
@@ -22,7 +22,7 @@ function getById(id) {
 }
 
 async function add(user) {
-  const [id] = await db('users').insert(user, 'user_id');
+  const [id] = await db('users').insert(user, 'id');
   return getById(id);
 }
 
