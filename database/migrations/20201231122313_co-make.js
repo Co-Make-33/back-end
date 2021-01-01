@@ -3,8 +3,8 @@ exports.up = function(knex) {
   return knex.schema
     .createTable('users', table => {
       table.increments('user_id')
-      table.string('username', 128).notNullable().unique()
-      table.string('email',128).notNullable().unique()
+      table.string('username', 128).notNullable().unique().index()
+      table.string('email',128).notNullable().unique().index()
       table.string('password', 128).notNullable()
     })
     .createTable('issues', table => {
@@ -25,6 +25,10 @@ exports.up = function(knex) {
       table.integer('user_id')
         .unsigned()
         .references('user_id').inTable('users')
+        .onDelete('RESTRICT').onUpdate('RESTRICT')
+      table.integer('issue_id')
+        .unsigned()
+        .references('issue_id').inTable('issues')
         .onDelete('RESTRICT').onUpdate('RESTRICT')
     })
     .createTable('votes', table => {
