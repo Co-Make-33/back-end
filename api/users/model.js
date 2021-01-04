@@ -18,7 +18,7 @@ function getBy(filter) {
 }
 
 function getById(id) {
-  return db("users").select('id', 'username' ).where({ id }).first();
+  return db("users").select('id', 'username', 'email' ).where({ id }).first();
 }
 
 async function add(user) {
