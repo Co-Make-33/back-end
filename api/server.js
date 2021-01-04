@@ -20,7 +20,7 @@ server.use('/api/issues', restrict, issuesRouter);
 server.use('/api/users', restrict, usersRouter);
 server.use('/api', authRouter);
 
-server.get('/', (req, res) => {
+server.get('/', (_, res) => {
   res.status(200).json({ api: 'up' });
 });
 
