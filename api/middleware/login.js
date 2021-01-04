@@ -34,12 +34,8 @@ const validUser = async (req, res, next) => {
 }
 
 const validPass = (req, res, next) => {
-  try {
-    console.log('Password UserData', req.userData.password);
-    console.log('Password Body', req.body.password);
-    
-    const verify = bcrypt.compareSync(req.body.password, req.userData.password);
-    
+  try {    
+    const verify = bcrypt.compareSync(req.body.password, req.userData.password); 
     if (verify) {
       next();
     } else {

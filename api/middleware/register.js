@@ -23,10 +23,15 @@ const unique = async (req, res, next) => {
   }
 }
 
-const hashPass = (req, res) => {
-  const rounds = process.env.BCRYPT_ROUNDS || 7;
-  const hash = bcrypt.hashSync(req.body.password, parseInt(rounds));
-  req.body.password = hash;
+const hashPass = (req, res, next) => {
+  try {
+    const rounds = process.env.BCRYPT_ROUNDS || 7;
+    const hash = bcrypt.hashSync(req.body.password, parseInt(rounds));
+    req.body.password = hash;
+    next();
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
 };
 
 module.exports = {
