@@ -11,23 +11,9 @@
   <tbody>
     <tr>
       <th>Auth</th>
-      <th >url</th>
-      <th >required</th>
-    </tr>
-    <tr>
-      <td>GET</td>
-      <td >api/auth/logout</td>
-      <td ></td>
-    </tr>
-    <tr>
-      <td>POST</td>
-      <td >api/auth/login</td>
-      <td >
-        <ul>
-          <li>username</li>
-          <li>password</li>
-        </ul>
-      </td>
+      <th>url</th>
+      <th>requires</th>
+      <th>description</th>
     </tr>
     <tr>
       <td>POST</td>
@@ -35,12 +21,27 @@
       <td >
         <ul>
           <li>username</li>
+          <li>email</li>
+          <li>password</li>
+        </ul>
+        <td>Register new user</td>
+      </td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>api/auth/login</td>
+      <td>
+        <ul>
+          <li>username*</li>
+          <li>email*</li>
           <li>password</li>
         </ul>
       </td>
+      <td>Login user</td>
     </tr>
   </tbody>
 </table>
+<h6>* OR - choose one</h6>
 <br/>
 
 ---
@@ -50,40 +51,94 @@
   <tbody>
     <tr>
       <th>User</th>
-      <th >url</th>
-      <th >required</th>
-      <th >optional</th>
+      <th>url</th>
+      <th>requires</th>
+      <th>returns</th>
+      <th>description</th>
     </tr>
     <tr>
-      <td>PUT</td>
-      <td >api/users/:id</td>
-      <td >
+      <td>GET</td>
+      <td>api/users/info</td>
+      <td>
         <ul>
-          <li>id (url)</li>
+          <li>token</li>
         </ul>
       </td>
       <td>
         <ul>
+          <li>id</li>
           <li>username</li>
-          <li>password</li>
-          <li>picture</li>
-          <li>description</li>
+          <li>email</li>
         </ul>
       </td>
+      <td>List all users</td>
     </tr>
     <tr>
-      <td>DELETE</td>
-      <td >api/users/:id</td>
-      <td >
+      <td>GET</td>
+      <td>api/users/info/:id</td>
+      <td>
         <ul>
-          <li>id (url)</li>
+          <li>token</li>
         </ul>
       </td>
-      <td >
+      <td>
+        <ul>
+          <li>id</li>
+          <li>username</li>
+          <li>email</li>
+        </ul>
       </td>
+      <td>Specific user info</td>
+    </tr>
+    <tr>
+      <td>PUT ~</td>
+      <td>api/users/info</td>
+      <td>
+        <ul>
+          <li>token</li>
+          <li>username*</li>
+          <li>email*</li>
+          <li>password*</li>
+          <li>picture* **</li>
+          <li>description* **</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>username</li>
+          <li>email</li>
+        </ul>
+      </td>
+      <td>Edit logged in user</td>
+    </tr>
+    <tr>
+      <td>DELETE ~</td>
+      <td>api/users/info</td>
+      <td>
+        <ul>
+          <li>token</li>
+        </ul>
+      </td>
+      <td>message confirming deletion</td>
+      <td>Delete logged in user</td>
+    </tr>
+    <tr>
+      <td>GET ~</td>
+      <td>api/users/issues</td>
+      <td>
+        <ul>
+          <li>token</li>
+        </ul>
+      </td>
+      <td>list of user specific issues</td>
+      <td>Get logged in users issues</td>
     </tr>
   </tbody>
 </table>
+<h6>~ Protected - Specific to logged in user</h6>
+<h6>* Optional - Choose which change(s) to make</h6>
+<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -93,65 +148,117 @@
   <tbody>
     <tr>
       <th>Issues</th>
-      <th >url</th>
-      <th >required</th>
-      <th >optional</th>
+      <th>url</th>
+      <th>requires</th>
+      <th>returns</th>
+      <th>description</th>
     </tr>
     <tr>
       <td>GET</td>
-      <td >api/issues</td>
-      <td >
-      </td>
+      <td>api/issues</td>
       <td>
+        <ul>
+          <li>token</li>
+        </ul>
       </td>
+      <td></td>
+      <td>List all issues</td>
     </tr>
     <tr>
       <td>GET</td>
-      <td >api/issues/:id</td>
-      <td >
-        <ul>
-          <li>id (url)</li>
-        </ul>
-      </td>
-      <td >
-      </td>
-    </tr>
-    <tr>
-      <td>POST</td>
-      <td >api/issues</td>
+      <td>api/issues/:id</td>
       <td>
         <ul>
-          <li>title</li>
-          <li>description</li>
+          <li>token</li>
         </ul>
       </td>
-      <td> 
-        <ul>
-          <li>picture</li>
-        </ul>
-      </td>
+      <td></td>
+      <td>Specifi Issue Info</td>
     </tr>
     <tr>
-      <td>PUT</td>
-      <td >api/issues/:id</td>
-      <td >
+      <td>POST ~</td>
+      <td>api/issues</td>
+      <td>
         <ul>
-          <li>id (url)</li>
+          <li>token</li>
+          <li>title*</li>
+          <li>description*</li>
+          <li>picture* **</li>
         </ul>
       </td>
-      <td >
-      </td>
+      <td></td>
+      <td>Create new issue</td>
     </tr>
     <tr>
-      <td>DELETE</td>
-      <td >api/issues/:id</td>
-      <td >
+      <td>PUT ~</td>
+      <td>api/issues/:id</td>
+      <td>
         <ul>
-          <li>id (url)</li>
+          <li>token</li>
+          <li>title*</li>
+          <li>description*</li>
+          <li>picture* **</li>
         </ul>
       </td>
-      <td >
+      <td></td>
+      <td>Edit specific issue</td>
+    </tr>
+    <tr>
+      <td>DELETE ~</td>
+      <td>api/issues/:id</td>
+      <td>
+        <ul>
+          <li>token</li>
+        </ul>
       </td>
+      <td></td>
+      <td>Delete specific issue</td>
     </tr>
   </tbody>
 </table>
+<h6>~ Protected - Specific to logged in user</h6>
+<h6>* Optional - Choose which change(s) to make</h6>
+<h6>** Pending - not yet functional</h6>
+<br/>
+
+---
+
+<br/>
+<table>
+  <tbody>
+    <tr>
+      <th>Votes/Comments</th>
+      <th>url</th>
+      <th>requires</th>
+      <th>returns</th>
+      <th>description</th>
+    </tr>
+    <tr>
+      <td>POST ~</td>
+      <td>api/issues/vote</td>
+      <td>
+        <ul>
+          <li>token</li>
+          <li>vote</li>
+          <li>issue id</li>
+        </ul>
+      </td>
+      <td></td>
+      <td>Vote on issue</td>
+    </tr>
+    <tr>
+      <td>POST ~</td>
+      <td>api/issues/comment</td>
+      <td>
+        <ul>
+          <li>token</li>
+          <li>comment</li>
+          <li>issue id</li>
+        </ul>
+      </td>
+      <td></td>
+      <td>Comment on issue</td>
+    </tr>
+  </tbody>
+</table>
+<h6>~ Protected - Specific to logged in user</h6>
