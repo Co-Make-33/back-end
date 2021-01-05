@@ -2,6 +2,8 @@
 
 ## back-end
 
+<h6>~ Protected - Specific to logged in user</h6>
+<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -132,13 +134,11 @@
         </ul>
       </td>
       <td>list of user specific issues</td>
-      <td>Get logged in users issues</td>
+      <td>List logged in users issues</td>
     </tr>
   </tbody>
 </table>
-<h6>~ Protected - Specific to logged in user</h6>
 <h6>* Optional - Choose which change(s) to make</h6>
-<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -181,8 +181,8 @@
       <td>
         <ul>
           <li>token</li>
-          <li>title*</li>
-          <li>description*</li>
+          <li>title</li>
+          <li>description</li>
           <li>picture* **</li>
         </ul>
       </td>
@@ -216,9 +216,7 @@
     </tr>
   </tbody>
 </table>
-<h6>~ Protected - Specific to logged in user</h6>
 <h6>* Optional - Choose which change(s) to make</h6>
-<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -261,4 +259,3 @@
     </tr>
   </tbody>
 </table>
-<h6>~ Protected - Specific to logged in user</h6>
