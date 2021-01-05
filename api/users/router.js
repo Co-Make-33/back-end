@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const Users = require('./model');
 const Issues = require('../issues/model');
+const { changeBody } = require('../middleware/issues');
 
 router.get('/info', async (_, res) => {
   try {
@@ -26,7 +27,7 @@ router.get('/info/:id', async (req, res) => {
   }
 });
 
-router.put('/info', async (req, res) => {
+router.put('/info', changeBody, async (req, res) => {
   const userId = req.decodedToken.subject;  
   const changes = req.body;    
   try {
