@@ -50,10 +50,14 @@ router.delete('/info', async (req, res) => {
 });
 
 router.get('/issues', async (req, res) => {
-  const userId = req.decodedToken.subject;
-  try {
-    const userIssues = await Issues.getBy({ user_id: userId });
-    if (userIssues.length){
+  const userId = req.decodedToken.subject;  
+  console.log('userId', userId);
+  
+  try {    
+    const userIssues = await Issues.getBy(userId);    
+    console.log('userIssues', userIssues);
+    
+    if (userIssues){
       res.status(200).json(userIssues);
     } else {
       res.status(404).json({ message: `${req.decodedToken.username} currently has no issues` })
