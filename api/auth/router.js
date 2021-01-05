@@ -16,7 +16,7 @@ router.post('/register', regBody, unique, hashPass, async (req, res) => {
 
 router.post('/login',logBody, validUser, validPass, (req, res) => {
   const token = makeToken(req.userData);
-  res.status(200).json({ message:`Welcome, ${req.userData.username}`, token });
+  res.status(201).json({ message:`Welcome, ${req.userData.username}`, token });
 });
 
 module.exports = router;
