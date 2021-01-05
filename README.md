@@ -161,7 +161,17 @@
           <li>token</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>List all issues</td>
     </tr>
     <tr>
@@ -172,7 +182,17 @@
           <li>token</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>Specifi Issue Info</td>
     </tr>
     <tr>
@@ -186,7 +206,17 @@
           <li>picture* **</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>Create new issue</td>
     </tr>
     <tr>
@@ -200,7 +230,17 @@
           <li>picture* **</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>Edit specific issue</td>
     </tr>
     <tr>
@@ -211,7 +251,7 @@
           <li>token</li>
         </ul>
       </td>
-      <td></td>
+      <td>message confirming deletion</td>
       <td>Delete specific issue</td>
     </tr>
   </tbody>

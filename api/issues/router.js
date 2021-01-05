@@ -63,12 +63,4 @@ router.delete('/:id', confirmUser, async (req, res) => {
   }
 });
 
-router.post('/vote', (req, res) => {
-
-});
-
-router.post('/comment', (req, res) => {
-//(201)
-});
-
 module.exports = router;
