@@ -28,9 +28,7 @@ router.get('/info/:id', async (req, res) => {
 
 router.put('/info', async (req, res) => {
   const userId = req.decodedToken.subject;  
-  const changes = req.body;  
-  console.log('changes', changes);
-  
+  const changes = req.body;    
   try {
     await Users.update(userId, changes); 
     const updated = await Users.getById(userId);
