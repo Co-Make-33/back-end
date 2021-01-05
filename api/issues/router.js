@@ -53,8 +53,14 @@ router.put('/:id',changeBody, confirmUser, async (req, res) => {
   }
 });
 
-router.delete('/:id', (req, res) => {
-
+router.delete('/:id', confirmUser, async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Issues.remove(id)
+    res.status(200).json({ message: `issue with id ${id} has been deleted` })
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 router.post('/vote', (req, res) => {
