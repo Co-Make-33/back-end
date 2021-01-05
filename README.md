@@ -2,6 +2,8 @@
 
 ## back-end
 
+<h6>~ Protected - Specific to logged in user</h6>
+<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -132,13 +134,11 @@
         </ul>
       </td>
       <td>list of user specific issues</td>
-      <td>Get logged in users issues</td>
+      <td>List logged in users issues</td>
     </tr>
   </tbody>
 </table>
-<h6>~ Protected - Specific to logged in user</h6>
 <h6>* Optional - Choose which change(s) to make</h6>
-<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -161,7 +161,17 @@
           <li>token</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>List all issues</td>
     </tr>
     <tr>
@@ -172,7 +182,17 @@
           <li>token</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>Specifi Issue Info</td>
     </tr>
     <tr>
@@ -181,12 +201,22 @@
       <td>
         <ul>
           <li>token</li>
-          <li>title*</li>
-          <li>description*</li>
+          <li>title</li>
+          <li>description</li>
           <li>picture* **</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>Create new issue</td>
     </tr>
     <tr>
@@ -200,7 +230,17 @@
           <li>picture* **</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>id</li>
+          <li>title</li>
+          <li>description</li>
+          <li>date_created</li>
+          <li>resolved_status</li>
+          <li>user_id</li>
+          <li>username</li>
+        </ul>
+      </td>
       <td>Edit specific issue</td>
     </tr>
     <tr>
@@ -211,14 +251,12 @@
           <li>token</li>
         </ul>
       </td>
-      <td></td>
+      <td>message confirming deletion</td>
       <td>Delete specific issue</td>
     </tr>
   </tbody>
 </table>
-<h6>~ Protected - Specific to logged in user</h6>
 <h6>* Optional - Choose which change(s) to make</h6>
-<h6>** Pending - not yet functional</h6>
 <br/>
 
 ---
@@ -261,4 +299,3 @@
     </tr>
   </tbody>
 </table>
-<h6>~ Protected - Specific to logged in user</h6>

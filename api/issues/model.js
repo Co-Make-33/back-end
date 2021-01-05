@@ -2,7 +2,6 @@ const db = require('../../database/db-config');
 
 module.exports = {
   getAll,
-  getBy,
   getById,
   add,
   update,
@@ -10,15 +9,11 @@ module.exports = {
 }
 
  function getAll(){
-  return db('issues');
+  return db('issues as i').join('users as u', 'i.user_id', 'u.id').select('i.*', 'u.username').orderBy('id');
  }
 
- function getBy(filter) {
-  return db('issues').where(filter).orderBy('id');
-}
-
  function getById(id) {
-  return db('issues').where({ id }).first();
+  return db('issues as i').where('i.id', 'like', id).first().join('users as u', 'i.user_id', 'u.id').select('i.*', 'u.username');
  }
 
  async function add(issue) {
