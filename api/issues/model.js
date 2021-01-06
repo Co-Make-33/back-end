@@ -30,14 +30,14 @@ module.exports = {
  }
 
  async function add(issue) {
-  const [id] = await db('issues').insert(issue, 'id');
-  return getById(id);
+  const id = await db('issues').insert(issue);
+  return await getById(id);
  }
 
- function update(id, info) {
-   return getById(id).update(info);
+ async function update(id, info) {
+   return await getById(id).update(info);
  }
 
- function remove(id) {
-  return getById(id).del();
+ async function remove(id) {
+  return await getById(id).del();
 }
