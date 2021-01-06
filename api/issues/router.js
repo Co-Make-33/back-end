@@ -92,11 +92,31 @@ router.post('/:id/votes', async (req, res) => {
 });
 
 router.get('/:id/comments', async (req, res) => {
-
+  const { id } = req.params;
+  try {
+    const comment = await Comments.getIssueComments(id)
+    console.log('comment', comment);
+    
+    if (!comment) {
+      res.status(401).json({ message: `no comments` })
+    } else {
+      res.status(200).json(comment);
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 })
 
 router.post('/:id/comments', async (req, res) => {
-//(201)
+  const comment = req.body;
+  req.body.user_id = req.decodedToken.subject
+  req.body.issue_id = parseInt(req.params.id);
+  try {
+    const result = await Comments.addComment(comment)
+    res.status(201).json(result)
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 module.exports = router;
