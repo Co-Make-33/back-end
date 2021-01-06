@@ -1,20 +1,10 @@
 const db = require('../../database/db-config');
 
 module.exports = {
-  getIssueVotes,
   getIssueComments,
   getUserComments,
   getComment,
   addComment
-}
-
-function getIssueVotes(id) {
-  return db('votes as v')
-    .where('v.issue_id', 'like', id)
-    .sum('v.vote')
-    .join('users as u', 'v.user_id', 'u.id')
-    .join('issues as i', 'v.issue_id', 'i.id')
-    .select('v.*', 'u.username', 'i.title');
 }
 
 function getIssueComments(id) {
@@ -43,5 +33,5 @@ function getComment(id) {
 
 async function addComment(comment) {
   const id = await db('comments').insert(comment);
-  return await getComment(id)
+  return await getComment(id);
 }

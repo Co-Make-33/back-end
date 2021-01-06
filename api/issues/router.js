@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
 const Issues = require('./model');
+const Comments = require('../actions/comments-model');
+const Votes = require('../actions/votes-model');
 const { issuesBody, changeBody, confirmUser } = require('../middleware/issues');
 
 router.get('/', async (req, res) => {
@@ -61,6 +63,40 @@ router.delete('/:id', confirmUser, async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+
+router.get('/:id/votes', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const votes = await Votes.getIssueVotes(id)
+    if (votes[0].id === null) {
+      res.status(401).json({ message: `no votes` })
+    } else {
+      res.status(200).json(votes);
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+})
+
+router.post('/:id/votes', async (req, res) => {
+  const vote = req.body;
+  req.body.user_id = req.decodedToken.subject
+  req.body.issue_id = parseInt(req.params.id);
+  try {
+    const result = Votes.upsert(vote)
+    res.status(201).json(result)
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get('/:id/comments', async (req, res) => {
+
+})
+
+router.post('/:id/comments', async (req, res) => {
+//(201)
 });
 
 module.exports = router;
