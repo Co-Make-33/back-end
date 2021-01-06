@@ -2,7 +2,7 @@ const db = require('../../database/db-config');
 
 module.exports = {
   getIssueVotes,
-  addVote
+  upsert
 }
 
 function getIssueVotes(id) {
@@ -17,4 +17,16 @@ function getIssueVotes(id) {
 
 function addVote(vote) {
   return db('votes').insert(vote);
+}
+
+function remove(vote) {
+  return db('votes as v')
+    .where('v.issue_id', vote.issue_id)
+    .where('v.user_id', vote.user_id)
+    .del()
+}
+
+async function upsert(vote) {
+  await remove(vote);
+  return addVote(vote);
 }

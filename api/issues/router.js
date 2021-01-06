@@ -80,8 +80,15 @@ router.get('/:id/votes', async (req, res) => {
 })
 
 router.post('/:id/votes', async (req, res) => {
-  //const user_id = req.decodedToken.subject
-  //(201)  
+  const vote = req.body;
+  req.body.user_id = req.decodedToken.subject
+  req.body.issue_id = parseInt(req.params.id);
+  try {
+    const result = Votes.upsert(vote)
+    res.status(201).json(result)
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 router.get('/:id/comments', async (req, res) => {
