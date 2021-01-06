@@ -272,12 +272,21 @@
       <th>description</th>
     </tr>
     <tr>
-      <td>POST ~</td>
-      <td>api/issues/vote</td>
+      <td>GET</td>
+      <td>api/issues/:id/vote</td>
+      <td></td>
+      <td></td>
+      <td>Vote totals for issue</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>POST</td>
+      <td>api/issues/:id/vote</td>
       <td>
         <ul>
           <li>token</li>
-          <li>vote</li>
+          <li>upvote (1)</li>
+          <li>downvote (-1)</li>
           <li>issue id</li>
         </ul>
       </td>
@@ -285,8 +294,15 @@
       <td>Vote on issue</td>
     </tr>
     <tr>
-      <td>POST ~</td>
-      <td>api/issues/comment</td>
+      <td>GET</td>
+      <td>api/issues/:id/comment</td>
+      <td></td>
+      <td></td>
+      <td>List all comments for issues</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>api/issues/:id/comment</td>
       <td>
         <ul>
           <li>token</li>
