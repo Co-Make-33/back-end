@@ -1,6 +1,6 @@
 
 exports.seed = function(knex) {
-  return knex('comments').truncate()
+  return knex('comments').del()
     .then(function () {
       return knex('comments').insert([
         {id: 1, comment: 'Racoons are a horrible idea! Fix the roads!!!', user_id: 1, issue_id: 2},
