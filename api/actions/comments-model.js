@@ -17,7 +17,7 @@ function getIssueComments(id) {
 
 function getUserComments(id) {
   return db('comments as c')
-    .where('c.user_id', 'like', id).first()
+    .where('c.user_id', 'like', id)
     .join('users as u', 'c.user_id', 'u.id')
     .join('issues as i', 'c.issue_id', 'i.id')
     .select('c.*', 'u.username', 'i.title');
@@ -25,7 +25,7 @@ function getUserComments(id) {
 
 function getComment(id) {
   return db('comments as c')
-    .where('c.id', 'like', id).first()
+    .where('c.id', 'like', id)
     .join('users as u', 'c.user_id', 'u.id')
     .join('issues as i', 'c.issue_id', 'i.id')
     .select('c.*', 'u.username', 'i.title');
