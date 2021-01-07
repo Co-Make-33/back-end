@@ -1,6 +1,6 @@
 
 exports.seed = function(knex) {
-  return knex('votes').del()
+  return knex('votes').truncate()
     .then(function () {
       return knex('votes').insert([
         {id: 1, user_id: 1, issue_id: 1, upvote: 1, downvote: null},
