@@ -1,6 +1,6 @@
 
 exports.seed = function(knex) {
-  return knex('issues').del()
+  return knex('issues').truncate()
     .then(function () {
       return knex('issues').insert([
         {id: 1, title: 'potholes', description: 'All the freaking holes in the roads! Why does this need an explanation?', resolved_status: 'unresolved', user_id: 1},
