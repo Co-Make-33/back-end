@@ -273,15 +273,21 @@
     </tr>
     <tr>
       <td>GET</td>
-      <td>api/issues/:id/vote</td>
+      <td>api/issues/:id/votes</td>
       <td></td>
-      <td></td>
+      <td>
+        <ul>
+          <li>Upvote Total</li>
+          <li>Downvote Total</li>
+          <li>issue id</li>
+          <li>issue title</li>
+        </ul>
+      </td>
       <td>Vote totals for issue</td>
     </tr>
     <tr>
-    <tr>
       <td>POST</td>
-      <td>api/issues/:id/vote</td>
+      <td>api/issues/:id/votes</td>
       <td>
         <ul>
           <li>token</li>
@@ -295,14 +301,23 @@
     </tr>
     <tr>
       <td>GET</td>
-      <td>api/issues/:id/comment</td>
+      <td>api/issues/:id/comments</td>
       <td></td>
-      <td></td>
+      <td>
+        <ul>
+          <li>comment id</li>
+          <li>comment</li>
+          <li>comment date</li>
+          <li>commenter id</li>
+          <li>commenter name</li>
+          <li>comment title</li>
+        </ul>
+      </td>
       <td>List all comments for issues</td>
     </tr>
     <tr>
       <td>POST</td>
-      <td>api/issues/:id/comment</td>
+      <td>api/issues/:id/comments</td>
       <td>
         <ul>
           <li>token</li>
@@ -310,7 +325,17 @@
           <li>issue id</li>
         </ul>
       </td>
-      <td></td>
+      <td>
+        <ul>
+          <li>comment id</li>
+          <li>comment</li>
+          <li>comment date</li>
+          <li>commenter id</li>
+          <li>issue id</li>
+          <li>commenter name</li>
+          <li>issue title</li>
+        </ul>
+      </td>
       <td>Comment on issue</td>
     </tr>
   </tbody>
