@@ -12,7 +12,7 @@ function getIssueVotes(id) {
     .sum('v.downvote as downvote_total')
     .join('users as u', 'v.user_id', 'u.id')
     .join('issues as i', 'v.issue_id', 'i.id')
-    .select('v.id', 'v.issue_id', 'i.title');
+    .select('v.issue_id', 'i.title');
 }
 
 function addVote(vote) {
